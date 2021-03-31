@@ -75,34 +75,13 @@ using contactManagement.Shared;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 3 "C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\Pages\Contacts.razor"
-using contactManagement.Data;
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/contacts")]
-    public partial class Contacts : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class AddContact : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 52 "C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\Pages\Contacts.razor"
-       
-    List<ContactInfo> contacts;
-    protected override async Task OnInitializedAsync()
-    {
-        contacts = await Task.Run(() => contactService.GetContacts());
-    }
-
-#line default
-#line hidden
-#nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ContactService contactService { get; set; }
     }
 }
 #pragma warning restore 1591
