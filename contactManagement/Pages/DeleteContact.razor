@@ -1,8 +1,60 @@
-﻿
-
+﻿@page "/deletecontact/{CurrentID}"
+@using contactManagement.Data
+@inject ContactService contactService
+@inject NavigationManager navigationManager
 
 <h3>DeleteContact</h3>
+<hr />
 
+<h4>
+    Are you sure you want to delete this?
+</h4>
+
+<div class="col-md-8">
+    <div class="form-group">
+        <label>Contact ID:</label>
+        <label>@contactInfo.Id</label>
+    </div>
+    <div class="form-group">
+        <label>Last Name:</label>
+        <label>@contactInfo.LastName</label>
+    </div>
+    <div class="form-group">
+        <label>First Name:</label>
+        <label>@contactInfo.FirstName</label>
+    </div>
+    
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-danger" @onclick="@DeleteAContact" value="Delete" />
+            <input type="button" class="btn btn-primary" @onclick="@Cancel" value="Cancel" />
+        </div>
+    </div>
+</div>
 @code {
+    [Parameter]
+    public string CurrentID { get; set; }
 
+    ContactInfo contactInfo = new ContactInfo();
+
+    protected override async Task OnInitializedAsync()
+    {
+        contactInfo.Id = Guid.Parse(CurrentID);
+        contactInfo = await Task.Run(() => contactService.GetContactById(Guid.Parse(CurrentID)));
+    }
+
+    protected void DeleteAContact()
+    {
+
+        contactService.DeleteContactInfo(contactInfo);
+        navigationManager.NavigateTo("contacts");
+    }
+
+    void Cancel()
+    {
+        navigationManager.NavigateTo("contacts");
+    }
 }
