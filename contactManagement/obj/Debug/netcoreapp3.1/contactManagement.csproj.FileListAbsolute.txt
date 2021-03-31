@@ -95,3 +95,5 @@ C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\obj
 C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Contacts.razor.g.cs
 C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\obj\Debug\netcoreapp3.1\Razor\Pages\AddContact.razor.g.cs
 C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\obj\Debug\netcoreapp3.1\Razor\Pages\Contacts.razor.g.cs
+C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\EditContact.razor.g.cs
+C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\obj\Debug\netcoreapp3.1\Razor\Pages\EditContact.razor.g.cs

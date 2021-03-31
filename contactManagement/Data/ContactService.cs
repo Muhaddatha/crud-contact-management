@@ -36,7 +36,16 @@ namespace contactManagement.Data
 
         public string UpdateContact(ContactInfo contact)
         {
-            _db.Contacts.Update(contact);
+            ContactInfo theContact = _db.Contacts.FirstOrDefault(s => s.Id == contact.Id);
+            Guid guid = contact.Id;
+            string LastName = contact.LastName;
+            string FirstName = contact.FirstName;
+            string PhoneNumber = contact.PhoneNumber;
+            DateTime birthdate = contact.BirthDate;
+
+            _db.Remove(theContact);
+            _db.SaveChanges();
+            _db.Add(contact);
             _db.SaveChanges();
             return "Updated successfully";
         }

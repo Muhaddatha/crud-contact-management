@@ -1,0 +1,65 @@
+﻿@page "/editcontact/{CurrentID}"
+@using contactManagement.Data
+@inject ContactService contactService
+@inject NavigationManager navigationManager
+
+<h3>Edit Contact</h3>
+
+<form>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="LastName" class="control-label">Last Name</label>
+                <input form="LastName" class="form-control" @bind="@contactInfo.LastName"  />
+            </div>
+            <div class="form-group">
+                <label for="FirstName" class="control-label">First Name</label>
+                <input form="FirstName" class="form-control" @bind="@contactInfo.FirstName" />
+            </div>
+            <div class="form-group">
+                <label for="PhoneNumber" class="control-label">Phone Number</label>
+                <input form="PhoneNumber" class="form-control" @bind="@contactInfo.PhoneNumber" />
+            </div>
+            <div class="form-group">
+                <label for="BirthDate" class="control-label">Birth Date</label>
+                <input form="BirthDate" type="datetime-local" class="form-control" @bind="@contactInfo.BirthDate" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" class="btn btn-primary" @onclick="@UpdateContact" value="Update" />
+                <input type="button" class="btn btn-danger" @onclick="@Cancel" value="Cancel" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@code {
+
+[Parameter]
+public string CurrentID { get; set; }
+
+ContactInfo contactInfo = new ContactInfo();
+
+protected override async Task OnInitializedAsync()
+{
+       contactInfo.Id = Guid.Parse(CurrentID);
+    contactInfo = await Task.Run(() => contactService.GetContactById(Guid.Parse(CurrentID)));
+}
+
+protected void UpdateContact()
+{
+    contactInfo.Id = Guid.Parse(CurrentID);
+    contactService.UpdateContact(contactInfo);
+    navigationManager.NavigateTo("contacts");
+}
+
+void Cancel()
+{
+    navigationManager.NavigateTo("contacts");
+}
+}
