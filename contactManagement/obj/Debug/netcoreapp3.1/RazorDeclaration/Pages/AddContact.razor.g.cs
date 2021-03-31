@@ -91,10 +91,10 @@ using contactManagement.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 40 "C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\Pages\AddContact.razor"
+#line 44 "C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\Pages\AddContact.razor"
        
     ContactInfo contactInfo = new ContactInfo();
-    
+
     protected void CreateContact()
     {
         contactInfo.Id = Guid.NewGuid();
@@ -105,6 +105,12 @@ using contactManagement.Data;
     void Cancel()
     {
         navigationManager.NavigateTo("contacts");
+    }
+
+    private void SaveFormContact()
+    {
+        Console.WriteLine("Updating contact");
+        CreateContact();
     }
 
 #line default
