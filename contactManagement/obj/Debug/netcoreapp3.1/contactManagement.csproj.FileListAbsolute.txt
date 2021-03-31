@@ -91,3 +91,7 @@ C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\obj
 C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\obj\Debug\netcoreapp3.1\contactManagement.dll
 C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\obj\Debug\netcoreapp3.1\contactManagement.pdb
 C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\obj\Debug\netcoreapp3.1\contactManagement.genruntimeconfig.cache
+C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\AddContact.razor.g.cs
+C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Contacts.razor.g.cs
+C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\obj\Debug\netcoreapp3.1\Razor\Pages\AddContact.razor.g.cs
+C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\obj\Debug\netcoreapp3.1\Razor\Pages\Contacts.razor.g.cs

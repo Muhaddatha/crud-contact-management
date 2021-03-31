@@ -75,6 +75,14 @@ using contactManagement.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\Pages\AddContact.razor"
+using contactManagement.Data;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/addcontact")]
     public partial class AddContact : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -82,6 +90,28 @@ using contactManagement.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 40 "C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\Pages\AddContact.razor"
+       
+    ContactInfo contactInfo = new ContactInfo();
+    
+    protected void CreateContact()
+    {
+        contactInfo.Id = Guid.NewGuid();
+        contactService.Create(contactInfo);
+        navigationManager.NavigateTo("contacts");
+    }
+
+    void Cancel()
+    {
+        navigationManager.NavigateTo("contacts");
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ContactService contactService { get; set; }
     }
 }
 #pragma warning restore 1591
