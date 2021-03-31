@@ -83,7 +83,7 @@ using contactManagement.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\Shared\NavMenu.razor"
+#line 33 "C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

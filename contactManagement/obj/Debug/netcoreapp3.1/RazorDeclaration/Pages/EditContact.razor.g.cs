@@ -91,31 +91,37 @@ using contactManagement.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 41 "C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\Pages\EditContact.razor"
+#line 45 "C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\Pages\EditContact.razor"
        
 
-[Parameter]
-public string CurrentID { get; set; }
+    [Parameter]
+    public string CurrentID { get; set; }
 
-ContactInfo contactInfo = new ContactInfo();
+    ContactInfo contactInfo = new ContactInfo();
 
-protected override async Task OnInitializedAsync()
-{
-       contactInfo.Id = Guid.Parse(CurrentID);
-    contactInfo = await Task.Run(() => contactService.GetContactById(Guid.Parse(CurrentID)));
-}
+    protected override async Task OnInitializedAsync()
+    {
+        contactInfo.Id = Guid.Parse(CurrentID);
+        contactInfo = await Task.Run(() => contactService.GetContactById(Guid.Parse(CurrentID)));
+    }
 
-protected void UpdateContact()
-{
-    contactInfo.Id = Guid.Parse(CurrentID);
-    contactService.UpdateContact(contactInfo);
-    navigationManager.NavigateTo("contacts");
-}
+    protected void UpdateContact()
+    {
+        contactInfo.Id = Guid.Parse(CurrentID);
+        contactService.UpdateContact(contactInfo);
+        navigationManager.NavigateTo("contacts");
+    }
 
-void Cancel()
-{
-    navigationManager.NavigateTo("contacts");
-}
+    void Cancel()
+    {
+        navigationManager.NavigateTo("contacts");
+    }
+
+    private void SaveFormContact()
+    {
+        Console.WriteLine("Updating contact");
+        UpdateContact();
+    }
 
 #line default
 #line hidden

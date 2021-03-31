@@ -75,6 +75,14 @@ using contactManagement.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\Pages\DeleteContact.razor"
+using contactManagement.Data;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/deletecontact/{CurrentID}")]
     public partial class DeleteContact : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -82,6 +90,37 @@ using contactManagement.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 37 "C:\Users\3pear\Desktop\Personal projects\contactManagement\contactManagement\Pages\DeleteContact.razor"
+       
+    [Parameter]
+    public string CurrentID { get; set; }
+
+    ContactInfo contactInfo = new ContactInfo();
+
+    protected override async Task OnInitializedAsync()
+    {
+        contactInfo.Id = Guid.Parse(CurrentID);
+        contactInfo = await Task.Run(() => contactService.GetContactById(Guid.Parse(CurrentID)));
+    }
+
+    protected void DeleteAContact()
+    {
+
+        contactService.DeleteContactInfo(contactInfo);
+        navigationManager.NavigateTo("contacts");
+    }
+
+    void Cancel()
+    {
+        navigationManager.NavigateTo("contacts");
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ContactService contactService { get; set; }
     }
 }
 #pragma warning restore 1591
